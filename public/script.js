@@ -246,11 +246,6 @@ document.addEventListener('DOMContentLoaded', function () {
             ];
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-            // If a message is already shown, don't show another
-            if (document.querySelector('.footer-logo-message')) {
-                return;
-            }
-
             // Create temporary message
             const msgEl = document.createElement('div');
             msgEl.className = 'footer-logo-message';

@@ -458,7 +458,7 @@ footer::before {
     filter: drop-shadow(0 0 10px rgba(214, 50, 50, 0.3));
 }
 
-.footer-logo-link:hover .footer-logo-img {
+ .footer-logo-img:hover {
     transform: scale(1.2);
     filter: drop-shadow(0 0 20px rgba(214, 50, 50, 0.6));
 }
