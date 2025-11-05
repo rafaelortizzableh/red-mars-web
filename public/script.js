@@ -221,8 +221,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Playful logo interaction in footer
     const footerLogo = document.querySelector('.footer-logo-link');
-    if (footerLogo) {
-        footerLogo.addEventListener('click', function (e) {
+    const footerLogoImg = document.querySelector('.footer-logo-img');
+    
+    if (footerLogo && footerLogoImg) {
+        // Add click event to both container and image
+        const handleLogoClick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             // Detect language from page
             const isSpanish = document.documentElement.lang === 'es';
             const messages = isSpanish ? [
@@ -240,26 +246,28 @@ document.addEventListener('DOMContentLoaded', function () {
             ];
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-            // Create temporary message
-            const msgEl = document.createElement('div');
-            msgEl.textContent = randomMessage;
-            msgEl.style.cssText = `
-                    position: fixed;
-                    bottom: 20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: rgba(214, 50, 50, 0.9);
-                    color: white;
-                    padding: 1rem 2rem;
-                    border-radius: 50px;
-                    font-weight: 600;
-                    z-index: 10000;
-                    animation: slideUp 0.5s ease-out;
-                `;
-            // If the message with the same text is already shown, don't show it again
+            // If a message is already shown, don't show another
             if (document.querySelector('.footer-logo-message')) {
                 return;
             }
+
+            // Create temporary message
+            const msgEl = document.createElement('div');
+            msgEl.className = 'footer-logo-message';
+            msgEl.textContent = randomMessage;
+            msgEl.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(214, 50, 50, 0.9);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                font-weight: 600;
+                z-index: 10000;
+                animation: slideUp 0.5s ease-out;
+            `;
 
             document.body.appendChild(msgEl);
 
@@ -269,7 +277,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     msgEl.remove();
                 }, 500);
             }, 1500);
-        })
+        };
+        
+        footerLogo.addEventListener('click', handleLogoClick);
+        footerLogoImg.addEventListener('click', handleLogoClick);
     }
 
     // Add slide animations
