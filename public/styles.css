@@ -441,13 +441,22 @@ footer::before {
     position: relative;
 }
 
-.footer-logo {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: -0.05em;
+.footer-logo-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+}
+
+.footer-logo-img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(214, 50, 50, 0.3));
+}
+
+.footer-logo-link:hover .footer-logo-img {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 20px rgba(214, 50, 50, 0.6));
 }
 
 .copyright p {
@@ -471,16 +480,6 @@ footer::before {
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-5px); }
-}
-
-.copyright .brand-red {
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.copyright .brand-red:hover {
-    text-shadow: 0 0 20px rgba(214, 50, 50, 0.8);
-    letter-spacing: 0.1em;
 }
 
 /* Responsive Design */
@@ -556,6 +555,11 @@ footer::before {
     .lang-toggle {
         padding: 0.4rem 0.8rem;
         font-size: 0.85rem;
+    }
+
+    .footer-logo-img {
+        width: 60px;
+        height: 60px;
     }
 }
 

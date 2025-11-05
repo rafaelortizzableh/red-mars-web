@@ -20,6 +20,7 @@ Modern, responsive landing page with dark mode and parallax effects for Red Mars
 web/
 ├── index.html              # Spanish landing page (main)
 ├── index-en.html          # English landing page
+├── 404.html               # Playful space-themed 404 page
 ├── manifest.json          # Web manifest for Spanish (not installable)
 ├── manifest-en.json       # Web manifest for English (not installable)
 ├── styles.css             # All styles with dark theme
@@ -188,8 +189,9 @@ open index.html
 ### Footer
 - **Cursor-reactive glow**: Red gradient glow follows mouse movement
 - **Interactive stars**: Stars appear and fade based on cursor proximity (200px radius)
+- **Logo with hover effect**: Footer logo scales from 1.0 to 1.2 with enhanced glow on hover
 - **Floating rocket emoji**: Subtle animation in copyright message
-- **Playful Easter egg**: Click on "RED" in copyright to see random space-themed messages
+- **Playful Easter egg**: Click footer logo for 30% chance to see random space-themed messages
 - **Hover effects**: CTA headline changes color on hover
 
 ### Hero Section
